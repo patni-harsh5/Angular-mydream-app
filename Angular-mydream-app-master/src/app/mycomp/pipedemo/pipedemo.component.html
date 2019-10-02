@@ -1,0 +1,8 @@
+<ul>
+    <li>{{userdata.name | lowercase}}</li>
+    <li>{{userdata.income | currency: 'INR':false}}</li>
+    <li>{{userdata.rating | number :'3.2-2'}}</li>
+    <li>{{userdata.doj | date: 'MM/yy'}}</li>
+    <li>{{userdata.description | summary}} </li>
+    <li>{{userdata | json}}</li>
+</ul>

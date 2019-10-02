@@ -1,0 +1,50 @@
+<ul>
+    <!--<li *ngFor = "let ud of users">-->
+    <!--    {{ud}}-->
+    <!--</li>-->
+    <li *ngFor = "let i of depts">
+        {{i}}
+    </li>
+</ul>
+My city: <input type="text" [(ngModel)]="mycity" class="form-control"/>
+<hr>
+Profile Pic: <img  style="width:300px; height:300px;" [src]="propic"/><br>
+
+
+<!--<div [hidden]="shoppingList.length == 0">items in your cart</div>-->
+<!--<div [hidden]="shoppingList.length > 0">no items found</div>-->
+
+<div *ngIf="shoppingList.length > 0"></div>
+<div *ngIf="shoppingList.length == 0; then show else noshow"></div>
+
+<ng-template #show>items in your cart</ng-template>
+<ng-template #noshow>no items found</ng-template>
+<br>
+
+<div *ngIf = "users.length>0; then showUsers else noshowUsers"></div>
+<!--<div *ngIf="users.lenght==0"></div>-->
+
+<ng-template #showUsers>
+    
+    <li *ngFor = "let ud of users">
+        {{ud}}
+    </li> 
+    
+</ng-template>
+<ng-template #noshowUsers>no users found</ng-template>
+<br>
+
+Image: <input type="text" [(ngModel)]="pastePic" class="form-control"/>
+<!--<img [src]="pastePic">-->
+
+<div *ngIf="pastePic==''; then noshowimg else showimg"></div>
+<ng-template #showimg><img [src]="pastePic"></ng-template>
+<ng-template #noshowimg></ng-template>
+<br>
+
+<app-pipedemo></app-pipedemo>
+
+<br>
+<button (click)="callme()" class="btn btn-success">Call</button>
+<app-favorite-component [isFavorite]='isFavorite'></app-favorite-component>
+<app-likes [totallikes]='totallikes'></app-likes>
